@@ -1,0 +1,245 @@
+/* Basic styling */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap');
+:root{
+    --Dark-Blue: hsl(240, 38%, 20%);
+    --Grayish-Blue: hsl(240, 18%, 77%);
+}
+*,
+*::after,
+*::before{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Inter', sans-serif;
+    color: var(--Grayish-Blue);
+    color: var(--Dark-Blue);
+    font-weight: 300;
+    background: url(../images/pattern-curve.svg) bottom left/ max(18rem, 45%) no-repeat;
+    overflow-x: hidden;
+    min-height: 100vh;
+    font-size: clamp(1.1rem, 0.7831rem + 1.3521vw, 2rem);
+    line-height: 1.4;
+}
+/* reviews */
+.reviews .container{
+    padding-top: clamp(0rem, -0.7042rem + 3.0047vw, 2rem);
+    display: grid;
+    position: relative;
+    min-height: 100vh;
+}
+/* review body */
+.review-body{
+    grid-column: 1;
+    grid-row: 1;
+    display: grid;
+    grid-template-columns: 57% 95%;
+    pointer-events: none;
+    opacity: 0;
+    place-items: center;
+    transition: opacity .5s ease-in-out;
+}
+
+.show{
+    opacity: 1;
+    pointer-events: all;
+    transition-delay: .2s;
+}
+/* text */
+.text{
+    animation: from-left 1s ease 0s 1 normal backwards;
+    padding-block: clamp(0rem, -2.8169rem + 12.0188vw, 8rem) clamp(2.5rem, 0.5634rem + 8.2629vw, 8rem); 
+    position: relative;
+    z-index: 2;
+}
+.text .review{
+    position: relative;
+}
+.text .review::before{
+    content: "";
+    position: absolute;
+    background: url(../images/pattern-quotes.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: clamp(4rem, 2.5915rem + 6.0094vw, 8rem);
+    height: clamp(4rem, 2.5915rem + 6.0094vw, 8rem);
+    left: 15%;
+    top: -30%
+    
+} 
+/* career */
+.career{
+    margin-top: clamp(1.1rem, 0.7479rem + 1.5023vw, 2.1rem);
+    font-size: clamp(1rem, 0.8944rem + 0.4507vw, 1.3rem);
+}
+
+/* image */
+.image-container{
+    position: relative;
+    animation: from-right 1s ease 0s 1 normal backwards;
+    padding: 4rem;
+    align-self: center;
+    right: 29%;
+    bottom: 4%;
+}
+/* background of the image container */
+.bg{
+    width: 100%;
+    object-fit: cover;
+}
+.review-img{
+    display: grid;
+    position: absolute;
+    left: 46%;
+    top: 52%;
+    transform: translate(-46%, -52%);
+    
+    width: 65%;
+    
+    border-radius: .4rem;
+    
+}
+/* button contaienr */
+.btn{
+    
+    background-color: #fff;
+    max-width: fit-content;
+    position: absolute;
+    padding: clamp(0.8rem, 0.6944rem + 0.4507vw, 1.1rem) clamp(0.9rem, 0.7944rem + 0.4507vw, 1.2rem);
+    
+    gap: clamp(2rem, 1.7183rem + 1.2019vw, 2.8rem);;
+    border-radius: 2rem;
+    bottom: -1.2rem;
+    left: 12%;
+    grid-column: 1;
+    grid-row: 1;
+    z-index: 4;
+}
+.btn > *{
+    cursor: pointer;
+    width: clamp(0.5rem, 0.412rem + 0.3756vw, 0.75rem);
+}
+.img{
+    width: 100%;
+   
+    object-fit: cover;
+    
+    box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(60, 60, 185, 0.25) 0px 50px 100px -20px, rgba(120, 116, 232, 0.3) 0px 30px 60px -30px;
+}
+/* utilities */
+.flex{
+    display: flex;
+}
+.bold{
+    font-weight: 700;
+    
+}
+.light-weight{
+    color: var(--Grayish-Blue);
+    font-weight: 300;
+    
+}
+
+.container{
+    margin: auto;
+    max-width: 73rem;
+    padding-inline: 2rem;
+}
+/* attribution */
+.attribution { font-size: 11px; text-align: center; }
+.attribution a { color: hsl(228, 45%, 44%); }
+/* Animations thanks to https://webcode.tools/generators/css/keyframe-animation */
+@keyframes from-left {
+	0% {
+		opacity: 0;
+		transform: translateX(-50px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+@keyframes from-right {
+	0% {
+		opacity: 0;
+		transform: translateX(50px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+@keyframes from-top {
+	0% {
+		opacity: 0;
+		transform: translateY(-50px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+@keyframes from-bottom {
+	0% {
+		opacity: 0;
+		transform: translateY(50px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+@media (max-width: 48.125rem){
+    /* review body  */
+    .review-body{
+        grid-template-columns: 1fr;
+    }
+    /* text */
+    .text{
+        text-align: center;
+        animation: from-bottom 1s ease 0s 1 normal backwards;
+    }
+    .text .review::before{
+        left: 50%;
+         transform: translateX(-50%);
+         top: -20%
+    }
+    .career > *{
+        display: block;
+    }
+    /* image */
+    .image-container{
+        display: grid;
+        grid-row: 1;
+        padding: 0;
+        position: unset;
+        place-items: center;
+        grid-template-columns: 1fr;
+        animation: from-top 1s ease 0s 1 normal backwards;
+    }
+    .image-container > *{
+        grid-column: 1/2;
+        grid-row: 1/2;
+    }
+    .review-img{
+      
+       left: unset;
+       width: 80%;
+    top: unset;
+    transform: unset;
+       position: relative;
+        transform: unset;
+        
+    }
+    .btn{
+        position: absolute;
+        right: unset !important;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
